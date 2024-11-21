@@ -15,8 +15,8 @@ public class Background : MonoBehaviour
         bg = GetComponent<SpriteRenderer>();
     }
 
-    public void UpdateBackground(ScheduleManager.Timeslot time, ScheduleManager.Destination place) {
-        if (time == ScheduleManager.Timeslot.Planning) {
+    public void UpdateBackground(ScheduleManager.Destination place) {
+        if (ScheduleManager.GetInstance().GetCurrentTime() == 0) {
             computerProp.SetActive(true);
             bg.sprite = backgrounds[0];
         }

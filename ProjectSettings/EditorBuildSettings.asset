@@ -8,4 +8,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Manager.unity
+    guid: 7a1e0a680fcf69c47a1b4f09c0acac88
+  - enabled: 1
+    path: Assets/Scenes/Apartment.unity
+    guid: 12a8bfeef903aa542b7d4e051270e62c
+  - enabled: 1
+    path: Assets/Scenes/ESP.unity
+    guid: 2e82b0d59beb5c942a2deed6a1ee80db
+  - enabled: 1
+    path: Assets/Scenes/Mosaic.unity
+    guid: 4d215cc52420d3d40b3ebbd331696594
+  - enabled: 1
+    path: Assets/Scenes/Police.unity
+    guid: 6c1f93e1ea8833c4b886086dba9e173f
+  - enabled: 1
+    path: Assets/Scenes/RallyCenter.unity
+    guid: 1e9e194791ff0cb4c90d61d89fb90736
   m_configObjects: {}

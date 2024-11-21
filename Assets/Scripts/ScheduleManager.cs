@@ -8,51 +8,41 @@ using Ink.Runtime;
 
 public class ScheduleManager : MonoBehaviour
 {
-    public UnityEvent<Timeslot, Destination> progressDay;
+    [SerializeField] private static ScheduleManager Instance;
+    public UnityEvent<Destination> progressDay;
     public UnityEvent endDay;
-
-    public int day;
-    public enum Timeslot {
-        Planning,
-        Morning,
-        Noon,
-        Afternoon,
-        Evening,
-        Count
-    }
 
     public enum Destination {
         Empty,
         RallyCenter,
-        Radio,
-        Apartment
+        ESP,
+        Apartment,
+        Police,
+        Mosaic
     }
 
-    public Timeslot currentTime;
 
     public Destination[] scheduleForToday;
-    private int currentIndex;
+    [SerializeField] private int currentIndex;
     public TMP_Dropdown[] dropdowns;
-    public GameManager manager;
-
-    public Animator fader;
-    public Animator playerAnimator;
 
     public GameObject ScheduleCanvas;
 
-    [Header("Timeslot Stuff")]
+    void Awake() {
+        if (Instance == null) {
+            Instance = this;
+        }
+        else {
+            Destroy(gameObject);
+        }
+    }
 
-    [SerializeField] private TextAsset introJSON;
-    [SerializeField] private TextAsset[] morningJSONS;
-    [SerializeField] private TextAsset noonJSON;
-    [SerializeField] private TextAsset afternoonJSON;
-    [SerializeField] private TextAsset eveningJSON;
-
-    // Start is called before the first frame update
+    // Singleton that will contain the current schedule (that can be updated by the player through the menu)
+    // and the time. Ink files for each day will be contained in their own respective scenes. 
     void Start()
     {
         if (progressDay == null) {
-            progressDay = new UnityEvent<Timeslot, Destination>();
+            progressDay = new UnityEvent<Destination>();
         }
 
         if (endDay == null) {
@@ -60,89 +50,27 @@ public class ScheduleManager : MonoBehaviour
         }
 
         currentIndex = 0;
-        day = 0;
-        scheduleForToday = new Destination[4];
+        scheduleForToday = new Destination[5];
+    }
 
-        DialogueManager.GetInstance().EnterDialogueMode(introJSON);
+    public static ScheduleManager GetInstance() {
+        return Instance;
+    }
+
+    private void Update() {
+        if (Input.GetKeyDown("1")) {
+            UpdateTime();
+        }
     }
 
     public void ShowScheduleCanvas() {
         ScheduleCanvas.SetActive(true);
     }
 
-    public void AttemptToProgressDay() {
-        if (currentTime == Timeslot.Planning) {
-            foreach(Destination d in scheduleForToday) {
-                if (d == Destination.Empty)
-                return;
-            }
+    public string GetNextSceneName() {
+        Destination d = scheduleForToday[currentIndex + 1];
 
-            ScheduleCanvas.SetActive(false);
-            UpdateTime();
-
-            StartCoroutine(ProgressDayCoroutine());
-        }
-        else if (currentTime == Timeslot.Evening) {
-            currentIndex = 0;
-            currentTime = Timeslot.Planning;
-            ClearSchedule();
-
-            StartCoroutine(ProgressDayCoroutine());
-        }
-        else {
-            currentIndex++;
-            UpdateTime();
-            Debug.Log(currentIndex);
-            StartCoroutine(ProgressDayCoroutine());
-        }
-    }
-
-    private IEnumerator ProgressDayCoroutine() {
-        Debug.Log("A");
-        playerAnimator.SetTrigger("WalkOut");
-        yield return new WaitForSeconds(1f);
-
-        fader.SetTrigger("TriggerFade");
-        yield return new WaitForSeconds(1f);
-
-        progressDay.Invoke(currentTime, scheduleForToday[currentIndex]);
-
-        yield return new WaitForSeconds(1f);
-
-        fader.SetTrigger("TriggerFade");
-
-        yield return new WaitForSeconds(1f);
-        
-        playerAnimator.SetTrigger("WalkIn");
-
-        yield return new WaitForSeconds(1f);
-
-        if (currentIndex != 0 || (day == 0 && currentIndex == 0))
-            BeginInteraction();
-        else {
-            ScheduleCanvas.SetActive(true);
-            day++;
-        }
-    }
-
-    private void BeginInteraction() {
-        Debug.Log(currentIndex);
-        switch (currentTime) {
-            case Timeslot.Morning:
-                Debug.Log((int)scheduleForToday[currentIndex - 1]);
-                TextAsset morningQ = morningJSONS[(int)scheduleForToday[currentIndex]];
-                DialogueManager.GetInstance().EnterDialogueMode(morningQ);
-                break;
-            case Timeslot.Noon:
-                DialogueManager.GetInstance().EnterDialogueMode(noonJSON);
-                break;
-            case Timeslot.Afternoon:
-                DialogueManager.GetInstance().EnterDialogueMode(afternoonJSON);
-                break;
-            case Timeslot.Evening:
-                DialogueManager.GetInstance().EnterDialogueMode(eveningJSON);
-                break;
-        }
+        return d.ToString();
     }
 
     /*
@@ -156,8 +84,12 @@ public class ScheduleManager : MonoBehaviour
     }
     */
 
+    public int GetCurrentTime() {
+        return currentIndex;
+    }
+
     public void UpdateScheduleValue(int i) {
-        scheduleForToday[i] = GetStringDestination(dropdowns[i].captionText.text);
+        scheduleForToday[i + 1] = GetStringDestination(dropdowns[i].captionText.text);
     }
 
     private Destination GetStringDestination(string x) {
@@ -165,9 +97,13 @@ public class ScheduleManager : MonoBehaviour
             case "Rally Center":
                 return Destination.RallyCenter;
             case "ESP Radio":
-                return Destination.Radio;
+                return Destination.ESP;
             case "Apartment":
                 return Destination.Apartment;
+            case "Police":
+                return Destination.Police;
+            case "Mosaic":
+                return Destination.Mosaic;
             default:
                 return Destination.Empty;
         }
@@ -180,9 +116,10 @@ public class ScheduleManager : MonoBehaviour
     }
 
     public void UpdateTime() {
-        int x = (int)currentTime;
-        x = (x + 1) % 5;
-        currentTime = (Timeslot)x;
+        currentIndex++;
+
+        if (currentIndex > scheduleForToday.Length)
+            currentIndex = 0;
     }
 
 

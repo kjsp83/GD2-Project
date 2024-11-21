@@ -7,14 +7,29 @@ using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
-    private static DialogueManager instance;
+    private static DialogueManager Instance;
 
     public ScheduleManager sm;
+
+    private DialogueVariables dialogueVariables;
+
+    private const string SPEAKER_TAG = "speaker";
+
+    /*
+    private const string PORTRAIT_TAG = "portrait";
+
+    private const string LAYOUT_TAG = "layout";
+    */
+
+    // variable for the load_globals.ink JSON
+    [Header("Load Globals JSON")]
+    [SerializeField] private TextAsset loadGlobalsJSON;
 
     [Header("Dialogue UI")]
 
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private TextMeshProUGUI displayNameText;
     private Story currentStory;
     private bool dialogueIsPlaying;
 
@@ -29,10 +44,12 @@ public class DialogueManager : MonoBehaviour
     
 
     private void Awake() {
-        if (instance != null) {
+        if (Instance != null) {
             Debug.LogWarning("Singleton aint single no more");
         }
-        instance = this;
+        Instance = this;
+
+         dialogueVariables = new DialogueVariables(loadGlobalsJSON);
     }
 
     private void Start() {
@@ -60,13 +77,18 @@ public class DialogueManager : MonoBehaviour
     }
 
     public static DialogueManager GetInstance() {
-        return instance;
+        return Instance;
     }
 
     public void EnterDialogueMode(TextAsset inkJSON) {
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
+
+        displayNameText.text = "";
+
+        dialogueVariables.StartListening(currentStory);
+
         currentStory.BindExternalFunction("pullUpComputer", () => {
             sm.ShowScheduleCanvas();
         });
@@ -75,6 +97,9 @@ public class DialogueManager : MonoBehaviour
     }
 
     private void ExitDialogueMode() {
+
+        dialogueVariables.StopListening(currentStory);
+
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
@@ -91,10 +116,39 @@ public class DialogueManager : MonoBehaviour
             else {
                 dialogueText.text = nextLine;
                 DisplayChoices();
+
+                HandleTags(currentStory.currentTags);
             }
         }
         else {
             ExitDialogueMode();
+        }
+    }
+
+    private void HandleTags(List<string> currentTags) {
+        foreach (string tag in currentTags) {
+            string[] splitTag = tag.Split(';');
+            if (splitTag.Length != 2) {
+                Debug.LogError("Tag could not be appropriately parsed: " +tag);
+            }
+            string tagKey = splitTag[0].Trim();
+            string tagValue = splitTag[1].Trim();
+
+
+            // handles tags
+            switch (tagKey) {  
+                case SPEAKER_TAG:
+                    if (tagValue == "none") {
+                        displayNameText.text = "";
+                        break;
+                    }
+
+                    displayNameText.text = tagValue;
+                    break;
+                default:
+                    Debug.LogWarning("Tag came in but is not being handled: " +tag);
+                    break;
+            }
         }
     }
 
@@ -122,5 +176,15 @@ public class DialogueManager : MonoBehaviour
         Debug.Log(choiceIndex);
         currentStory.ChooseChoiceIndex(choiceIndex);
         ContinueStory();
+    }
+
+    public Ink.Runtime.Object GetVariableState(string variableName) {
+        Ink.Runtime.Object variableValue = null;
+        dialogueVariables.variables.TryGetValue(variableName, out variableValue);
+
+        if (variableValue == null) {
+            Debug.LogWarning("Ink variable was found to be null: " +variableName);
+        }
+        return variableValue;
     }
 }

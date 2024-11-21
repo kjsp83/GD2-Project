@@ -1,4 +1,6 @@
--> miseryChoice
+INCLUDE ../globals.ink
+
+{ test_string == "": -> miseryChoice | -> already_chose }
 
 === miseryChoice ===
 Pick a choice.
@@ -10,5 +12,10 @@ Pick a choice.
         -> chosen("Slug rain")
         
 === chosen(misery) ===
+~ test_string = misery
 You chose {misery}!
 ->END
+
+=== already_chose ===
+you already chose {test_string}!
+-> END
