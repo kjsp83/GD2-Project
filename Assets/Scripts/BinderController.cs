@@ -25,6 +25,13 @@ public class BinderController : MonoBehaviour
         }
     }
 
+    public void CloseIfOpen() {
+        if (isOpen) {
+            binderAnim.SetBool("binderOpen", false);
+            isOpen = false;
+        }
+    }
+
     public void CloseBinder() {
         binderAnim.SetBool("binderOpen", false);
         isOpen = false;

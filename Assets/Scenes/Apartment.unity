@@ -131,9 +131,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1176177540082245053, guid: 7b7b4850e6790d74b9d9e808265c38c1, type: 3}
+      propertyPath: playOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176177540082245053, guid: 7b7b4850e6790d74b9d9e808265c38c1, type: 3}
       propertyPath: sceneDialogues.Array.data[0]
       value: 
-      objectReference: {fileID: 4900000, guid: 307379103c63f4945ba6f392d5c50805, type: 3}
+      objectReference: {fileID: 4900000, guid: 11ee2c96a1f0cd447889494a952c5d19, type: 3}
+    - target: {fileID: 1176177540082245053, guid: 7b7b4850e6790d74b9d9e808265c38c1, type: 3}
+      propertyPath: sceneDialogues.Array.data[1]
+      value: 
+      objectReference: {fileID: 4900000, guid: bc345538949ac6641aabd770a4632210, type: 3}
+    - target: {fileID: 1176177540082245053, guid: 7b7b4850e6790d74b9d9e808265c38c1, type: 3}
+      propertyPath: sceneDialogues.Array.data[2]
+      value: 
+      objectReference: {fileID: 4900000, guid: bd035783cb164f740812007546153de4, type: 3}
     - target: {fileID: 2747545708479405923, guid: 7b7b4850e6790d74b9d9e808265c38c1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.9202997
@@ -297,6 +309,75 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da119cad99f24764e81c27b30cb6d4e6, type: 3}
+--- !u!1001 &2035993809
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 248521345902468140, guid: 5fa4b2e54963bdc41ac1817419e40f7d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 248521345902468140, guid: 5fa4b2e54963bdc41ac1817419e40f7d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 248521345902468140, guid: 5fa4b2e54963bdc41ac1817419e40f7d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 248521345902468140, guid: 5fa4b2e54963bdc41ac1817419e40f7d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 248521345902468140, guid: 5fa4b2e54963bdc41ac1817419e40f7d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 248521345902468140, guid: 5fa4b2e54963bdc41ac1817419e40f7d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 248521345902468140, guid: 5fa4b2e54963bdc41ac1817419e40f7d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 248521345902468140, guid: 5fa4b2e54963bdc41ac1817419e40f7d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 248521345902468140, guid: 5fa4b2e54963bdc41ac1817419e40f7d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 248521345902468140, guid: 5fa4b2e54963bdc41ac1817419e40f7d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020818195739246184, guid: 5fa4b2e54963bdc41ac1817419e40f7d, type: 3}
+      propertyPath: backgrounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 508aaabb34edea6479e32726a68f9546, type: 3}
+    - target: {fileID: 1020818195739246184, guid: 5fa4b2e54963bdc41ac1817419e40f7d, type: 3}
+      propertyPath: backgrounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 1dd267c69ed3d434dafb9b1c4f71f7e7, type: 3}
+    - target: {fileID: 1020818195739246184, guid: 5fa4b2e54963bdc41ac1817419e40f7d, type: 3}
+      propertyPath: backgrounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: ed8036909596024469fe93df038ed301, type: 3}
+    - target: {fileID: 7774565022862906427, guid: 5fa4b2e54963bdc41ac1817419e40f7d, type: 3}
+      propertyPath: m_Name
+      value: Background
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5fa4b2e54963bdc41ac1817419e40f7d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -304,3 +385,4 @@ SceneRoots:
   - {fileID: 302878551}
   - {fileID: 1160536645}
   - {fileID: 1356784196}
+  - {fileID: 2035993809}

@@ -28,6 +28,12 @@ public class ScheduleManager : MonoBehaviour
 
     public GameObject ScheduleCanvas;
 
+    [Header("Page Management")]
+    [SerializeField] private int currentPage = 0;
+    [SerializeField] private GameObject[] pages;
+    [SerializeField] private GameObject flipRightButton;
+    [SerializeField] private GameObject flipLeftButton;
+
     void Awake() {
         if (Instance == null) {
             Instance = this;
@@ -120,6 +126,34 @@ public class ScheduleManager : MonoBehaviour
 
         if (currentIndex > scheduleForToday.Length)
             currentIndex = 0;
+    }
+
+    public void FlipPage(bool direction) { // true goes right, false goes left
+        if (direction) {
+            if (currentPage < pages.Length - 1) {
+                pages[currentPage].SetActive(false);
+                currentPage++;
+                pages[currentPage].SetActive(true);
+            }
+        }
+        else {
+            if (currentPage > 0) {
+                pages[currentPage].SetActive(false);
+                currentPage--;
+                pages[currentPage].SetActive(true);
+            }
+        }
+
+        if (currentPage == 0) {
+            flipLeftButton.SetActive(false);
+        }
+        else if (currentPage == pages.Length - 1) {
+            flipRightButton.SetActive(false);
+        }
+        else {
+            flipLeftButton.SetActive(true);
+            flipRightButton.SetActive(true);
+        }
     }
 
 

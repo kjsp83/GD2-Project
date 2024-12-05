@@ -6,23 +6,16 @@ public class Background : MonoBehaviour
 {
     private SpriteRenderer bg;
 
-    public Sprite[] backgrounds;
-    public GameObject computerProp;
+    [SerializeField] private Sprite[] backgrounds;
 
     // Start is called before the first frame update
     void Start()
     {
         bg = GetComponent<SpriteRenderer>();
+        bg.sprite = backgrounds[ScheduleManager.GetInstance().GetCurrentTime()];
     }
 
     public void UpdateBackground(ScheduleManager.Destination place) {
-        if (ScheduleManager.GetInstance().GetCurrentTime() == 0) {
-            computerProp.SetActive(true);
-            bg.sprite = backgrounds[0];
-        }
-        else {
-            computerProp.SetActive(false);
-            bg.sprite = backgrounds[(int)place];
-        }
+        bg.sprite = backgrounds[ScheduleManager.GetInstance().GetCurrentTime()];
     }
 }

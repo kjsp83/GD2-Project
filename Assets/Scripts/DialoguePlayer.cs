@@ -8,11 +8,16 @@ public class DialoguePlayer : MonoBehaviour
     [SerializeField] private TextAsset[] sceneDialogues;
 
     private bool hasPlayed = false;
+    [SerializeField] private bool playOnStart = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (playOnStart) {
+            Debug.Log("go");
+            DialogueManager.GetInstance().EnterDialogueMode(sceneDialogues[ScheduleManager.GetInstance().GetCurrentTime()]);
+            hasPlayed = true;
+        }
     }
 
     // Update is called once per frame
@@ -20,7 +25,7 @@ public class DialoguePlayer : MonoBehaviour
     {
         if (Input.GetKeyDown("space") && !hasPlayed) {
             Debug.Log("go");
-            DialogueManager.GetInstance().EnterDialogueMode(sceneDialogues[ScheduleManager.GetInstance().GetCurrentTime() - 1]);
+            DialogueManager.GetInstance().EnterDialogueMode(sceneDialogues[ScheduleManager.GetInstance().GetCurrentTime()]);
             hasPlayed = true;
         }
     }

@@ -36,8 +36,13 @@ public class SceneChanger : MonoBehaviour
 
     public void LoadNextScene() {
         string name = ScheduleManager.GetInstance().GetNextSceneName();
-        Debug.Log(name);
-        StartCoroutine(LoadNextSceneAsync(name));
+        if (name != "CHOOSE") {
+            Debug.Log(name);
+            StartCoroutine(LoadNextSceneAsync(name));
+        }
+        else {
+            Debug.LogError("Invalid Scene Name");
+        }
     }
 
     /** 

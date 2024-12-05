@@ -13,7 +13,8 @@ public class DialogueManager : MonoBehaviour
 
     private DialogueVariables dialogueVariables;
 
-    private const string SPEAKER_TAG = "speaker";
+    private const string SPEAKER_TAG = "Speaker";
+    private const string CLUE_TAG = "clue";
 
     /*
     private const string PORTRAIT_TAG = "portrait";
@@ -127,7 +128,7 @@ public class DialogueManager : MonoBehaviour
 
     private void HandleTags(List<string> currentTags) {
         foreach (string tag in currentTags) {
-            string[] splitTag = tag.Split(';');
+            string[] splitTag = tag.Split(':');
             if (splitTag.Length != 2) {
                 Debug.LogError("Tag could not be appropriately parsed: " +tag);
             }
@@ -136,14 +137,19 @@ public class DialogueManager : MonoBehaviour
 
 
             // handles tags
+            // maybe add a tag for clues, that calls a method in schedulemanager to toggle them in the notebook
             switch (tagKey) {  
                 case SPEAKER_TAG:
-                    if (tagValue == "none") {
+                    if (tagValue == "na") { // if the speaker is listed as NA, remove the profile image and set the display name to nothing.
                         displayNameText.text = "";
                         break;
                     }
 
                     displayNameText.text = tagValue;
+                    break;
+                case CLUE_TAG:
+                    // add code here to call clue method from schedulemanager after you write it
+                    Debug.Log(tagValue);
                     break;
                 default:
                     Debug.LogWarning("Tag came in but is not being handled: " +tag);
