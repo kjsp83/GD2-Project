@@ -17,6 +17,6 @@ Their signs read all kinds of things, from general messages such as 'We need pol
 An officer with the name tag Tyler K. looks awkward for a second. #Speaker: na
 "The alley the responding officer found the deceased in was pitch dark, making it near impossible to see, believing they had heard someone move towards them, shot in the direction." #Speaker: Police Chief
 "This was a mistake in their training, but what they had felt was going to keep THEM SAFE MOST!" 
-The crowd starts grumbling in response. #Speaker: na clue: ral_h3_diff
+The crowd starts grumbling in response. #Speaker: na #clue: Dispatch_had_technical_difficulties #clue: Multiple_shots_fired
 // –Dispatch technical difficulties –Multiple shots fired
     -> END

@@ -16,6 +16,6 @@ He stops and turns your way. #Speaker: na
 He starts to push through the big doors. #Speaker: na
 "Yes, that makes sense." #Speaker: Ryan
 As you begin walking away, you notice a paper, which seemed to have slipped out of the envelope because of it's small size. #Speaker: na
-The paper reads: I know. Wire this account ten thousand a month, and maybe I won't leak this to the press. #clue: mos_h2_wire
+The paper reads: I know. Wire this account ten thousand a month, and maybe I won't leak this to the press. #clue: 10k_anonymous_wire
 // --10,000k anonymous wire
     -> END

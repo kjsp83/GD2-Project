@@ -34,6 +34,11 @@ public class ScheduleManager : MonoBehaviour
     [SerializeField] private GameObject flipRightButton;
     [SerializeField] private GameObject flipLeftButton;
 
+    [Header ("Page Content")]
+    [SerializeField] private int currentNotesPage = 0;
+    [SerializeField] private GameObject[] notesTexts;
+
+
     void Awake() {
         if (Instance == null) {
             Instance = this;
@@ -66,6 +71,9 @@ public class ScheduleManager : MonoBehaviour
     private void Update() {
         if (Input.GetKeyDown("1")) {
             UpdateTime();
+        }
+        if (Input.GetKeyDown("2")) {
+            AddClueToNotes("Test_clue_sentence,_please_let_this_work");
         }
     }
 
@@ -154,6 +162,39 @@ public class ScheduleManager : MonoBehaviour
             flipLeftButton.SetActive(true);
             flipRightButton.SetActive(true);
         }
+    }
+
+
+    public void AddClueToNotes(string rawClue) {
+        string clue = "- " + rawClue.Replace('_', ' ') + "\n" ;
+        TextMeshProUGUI pageText = notesTexts[currentNotesPage].GetComponent<TextMeshProUGUI>();
+
+        for (int i = 0; i < pages.Length; i++) {
+            pages[i].SetActive(true);
+            Debug.Log(i
+            );
+        }
+
+        // check if it overflows the vertical bounds of the page
+        if (!pageText.isTextOverflowing) {
+            notesTexts[currentNotesPage].GetComponent<TextMeshProUGUI>().text += clue;
+        }
+        else if (currentNotesPage < notesTexts.Length - 1) {
+            Debug.Log("OH GOD ITS HAPPENING");
+            currentNotesPage++;
+            pageText = notesTexts[currentNotesPage].GetComponent<TextMeshProUGUI>();
+            pageText.text += clue;
+        }
+
+        for (int i = 0; i < pages.Length; i++) {
+            pages[i].SetActive(false);
+        }
+        pages[currentPage].SetActive(true);
+    }
+
+
+    public void DisableOldTimeslot() {
+        dropdowns[currentIndex].gameObject.SetActive(false);
     }
 
 

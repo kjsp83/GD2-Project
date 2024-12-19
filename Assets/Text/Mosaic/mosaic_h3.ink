@@ -18,6 +18,6 @@ The distinct ping of a card scan's failure rings through the hall once again.
 "Hey, you wouldn't happen to have access to the R&D department would you? I need to get in there to drop off a report for Isla."
 "Sorry, I don't have access to that room." #Speaker: Everest
 "Maybe it was removed at the beggining of the trimester?" #Speaker: Garret
-"I work in my office for most of my time and I have no reason to be there after hours, so I hadn't really noticed, but yeah, I don't know where it went and it's supposed to be there." #clue: mos_h3_lock
+"I work in my office for most of my time and I have no reason to be there after hours, so I hadn't really noticed, but yeah, I don't know where it went and it's supposed to be there." #clue: Garrett_locked_out
 // –Garret locked out
     -> END

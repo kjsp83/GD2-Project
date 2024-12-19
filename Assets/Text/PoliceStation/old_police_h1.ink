@@ -18,5 +18,5 @@ He shows you a report to corroborate, before snatching it away. #Speaker: na
 "We don't know what happened to change the response on 11/13." #Speaker: P Captain
 "So I suggest, like to him, that you stop poking around where you don't belong.
 "Thank you for your time."
-He scoffs and leaves you at the door. #Speaker: na
+He scoffs and leaves you at the door. #Speaker: na #clue: Police_tried_to_respond_timely_but_had_delayed_communications
 -> DONE

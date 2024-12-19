@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RallyCenter.unity
     guid: 1e9e194791ff0cb4c90d61d89fb90736
+  - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: 80dbf8b5568ea1044b0f0fb1735ffb28
   m_configObjects: {}

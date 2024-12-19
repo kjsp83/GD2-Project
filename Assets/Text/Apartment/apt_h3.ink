@@ -12,5 +12,5 @@ Though you worried if you could keep it. #Speaker: na
 You dig down into the cat food, only to catch on something hard in the center. 
 A curious recorder sits inside the bin. 
 *play voice recording*
-–Ronnie’s ‘darling’ in recording #clue: apt_h3_recorder
+–Ronnie’s ‘darling’ in recording #clue: Ronnie's_"darling"_in_recording
     -> END

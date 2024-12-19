@@ -13,6 +13,6 @@ As you enter the precinct, you spot a communications desk near the entrance wher
 "Trying to piece together a vct video recording that glitched out." #Speaker: Attendant
 As she speaks, she pops the vcr out of a device. It is labeled as footage from the radio station's cameras on 11/23. #Speaker: na
 "Gotta check it before we can close up a case. I appreciate you're concern, but I can handle it." #Speaker: Attendant
-They shoo you away before you get another second. #Speaker: na clue: pol_h3_reboot
+They shoo you away before you get another second. #Speaker: na #clue: pol_h3_reboot
 // –Police reboots since 11/10 –Radio camera footage missing
     -> END

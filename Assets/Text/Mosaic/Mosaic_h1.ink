@@ -12,5 +12,5 @@ In place of the company wide email, the only one left is one to the R&D departme
 "WERC is returning to R&D to solve the black box issue through more electromagnetic testing, and see if the project is worth salvage and repurpose." #Speaker: RND
 Another email details the project's cancellation shortly after, noting that all details of the project, including the blueprints would need to be removed from all drives and stored elsewhere after the project's end in two days. #Speaker: na
 You hear a door open, and someone walking back from a break, and slip out of the office just in time.
-What did Arthur see here? #clue: mos_h1
+What did Arthur see here? #clue: WERC_tech_malfunction #clue: Returned_to_R&D
 -> DONE

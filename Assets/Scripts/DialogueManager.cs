@@ -147,9 +147,8 @@ public class DialogueManager : MonoBehaviour
 
                     displayNameText.text = tagValue;
                     break;
-                case CLUE_TAG:
-                    // add code here to call clue method from schedulemanager after you write it
-                    Debug.Log(tagValue);
+                case CLUE_TAG: // Calls method to add clue to notes in ScheduleManager
+                    ScheduleManager.GetInstance().AddClueToNotes(tagValue);
                     break;
                 default:
                     Debug.LogWarning("Tag came in but is not being handled: " +tag);

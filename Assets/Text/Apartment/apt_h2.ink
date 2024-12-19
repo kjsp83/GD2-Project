@@ -13,6 +13,6 @@ You dig through the mess, frantically scanning books and receipts for relief, wh
 Rather than addressing Arthur, the account on this receipt is made out to ESP Radio.
 Several loans remain on the receipt, and the balance skirts just outside of bankruptcy. 
 Another one inside shows a spike in deposits, where tens of thousands suddenly start coming in.
-What was this? #clue: 10kwire
+What was this? #clue: 10k_anonymously_wired_to_ESP
 // –10k anonymous wire
     -> END

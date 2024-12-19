@@ -11,6 +11,6 @@ She points to an empty desk with the title maintenence, the title reads Garret H
 "We had to let Garret go three months ago because he was too good at his job and there was nothing to repair." # Speaker: Desk Lady
 "Of course, though, whenever you aren't prepared is when it hits."
 She pulls out a completed maintenance request. #Speaker: na
-"Luckily, Ronnie took a look at it. Bless that man." # Speaker: Desk Lady
+"Luckily, Ronnie took a look at it. Bless that man." # Speaker: Desk Lady #clue: Malfunctions_at_ESP #clue: Ronnie_took_over_for_Garrett
 "Okay, that's all I have for you. Out you go!"
 -> DONE

@@ -27,6 +27,6 @@ His face twitches a bit as the crowd grows restless. #Speaker: na
 "Then where is the footage?" #Speaker: The Same Stranger
 "I didn---" #Speaker: Tyler
 Suddenly, the chief is beside him, pusing him into an office. #Speaker: na
-"Sorry folks, but that's all for the press. We have business." #Speaker: Police Chief #clue: pol_h2_cam
+"Sorry folks, but that's all for the press. We have business." #Speaker: Police Chief #clue: Tyler's_camera_malfunction_could_have_been_purposeful #clue: Camera_footage_lost
 // –Tyler camera malfunction Purposeful? –Camera lost footage
     -> END

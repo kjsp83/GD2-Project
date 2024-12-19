@@ -18,9 +18,11 @@ public class IntroPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (( videoPlayer.frame) > 0 && (videoPlayer.isPlaying == false)) {
             journalButton.SetActive(true);
             videoObject.SetActive(false);
         }
+        */
     }
 }

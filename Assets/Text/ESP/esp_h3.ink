@@ -16,6 +16,6 @@ She clears her throat. Very suspicious. #Speaker: na
 "But ma'am it's just a follow up from the previous reporter!" #Speaker: Everest
 "Never met one. Email!" #Speaker: Miriam
 In her haste, she dropped a receipt. #Speaker: na
-Seems ESP made a lot of money out to Mosaic LLC for a vague commission of 'data analysis'. Since when did we do those? #clue: esp_h3_data
+Seems ESP made a lot of money out to Mosaic LLC for a vague commission of 'data analysis'. Since when did we do those? #clue: ESP_paying_5k_for_'data_analysis'
 // –ESP paying 5k for ‘data analysis’?
     -> END

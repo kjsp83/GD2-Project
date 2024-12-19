@@ -10,6 +10,9 @@ public class SceneChanger : MonoBehaviour
 
     [SerializeField] private string currentScene;
 
+    [Header("Fade")]
+    [SerializeField] private Animator fader;
+
 
     [Header("Scene Change Events")]
     public UnityEvent m_BeginSceneChangeEvent;
@@ -34,10 +37,16 @@ public class SceneChanger : MonoBehaviour
         }
     }
 
+
+    public static SceneChanger GetInstance() {
+        return Instance;
+    }
+
     public void LoadNextScene() {
         string name = ScheduleManager.GetInstance().GetNextSceneName();
         if (name != "CHOOSE") {
             Debug.Log(name);
+            ScheduleManager.GetInstance().DisableOldTimeslot();
             StartCoroutine(LoadNextSceneAsync(name));
         }
         else {
